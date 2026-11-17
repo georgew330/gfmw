@@ -48,10 +48,16 @@ body {
     padding: 32px 7vw 160px;
 }
 
-.hero-image {
+.hero-image,
+.intro-image,
+.contact-image {
     width: 100%;
+    aspect-ratio: 3 / 2;
     max-height: 72vh;
     object-fit: cover;
+}
+
+.hero-image {
     border-radius: 4px;
 }
 
@@ -65,19 +71,20 @@ body {
 }
 
 .intro-image {
-    width: 100%;
-    max-width: 580px;
-    height: 480px;
-    object-fit: cover;
     object-position: center 70%;
 }
 
 .contact-section {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 64px 10vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 48px;
+    padding: 64px 7vw;
+}
+
+.contact-image {
+    justify-self: end;
 }
 
 .hero h1 {
@@ -114,12 +121,22 @@ body {
 }
 
 .cv-link {
+    display: inline-block;
+    margin-top: 48px;
+    margin-left: clamp(80px, 10vw, 180px);
     align-self: flex-start;
     padding: 12px 20px;
     color: white;
     background-color: #6737a8;
     text-decoration: none;
     border-radius: 4px;
+}
+
+@media (max-width: 700px) {
+    .cv-link {
+        margin-left: 0;
+    }
+
 }
 
 .cv-link:hover,
@@ -154,7 +171,14 @@ html {
 }
 
 .portfolio-intro {
-    margin-bottom: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.github-link {
+    margin-left: auto;
 }
 
 .project-list {
